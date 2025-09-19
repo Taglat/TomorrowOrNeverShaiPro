@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     TELEGRAM_BOT_TOKEN: str
     
     # SHAI.pro Configuration
-    SHAI_API_URL: str
+    SHAI_API_URL: str = "https://hackathon.shai.pro/api/v1/app/d2f70ec3-7434-4a19-95e6-92fe6231cf5d/incoming/message"
     SHAI_API_KEY: str = ""
     
     # Database Configuration
