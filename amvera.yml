@@ -1,0 +1,17 @@
+meta:
+  environment: python
+  toolchain: docker
+
+build:
+  dockerfile: Dockerfile
+
+run:
+  containerPort: 8000
+  healthcheckPath: /
+
+env:
+  TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+  SHAI_API_URL: ${SHAI_API_URL}
+  SHAI_API_KEY: ${SHAI_API_KEY}
+  DATABASE_URL: sqlite+aiosqlite:///./shai.db
+  CURATOR_CHAT_IDS: ${CURATOR_CHAT_IDS}

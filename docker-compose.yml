@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  shai-bot:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-test_token}
+      - SHAI_API_URL=${SHAI_API_URL:-https://api.example.com/test}
+      - SHAI_API_KEY=${SHAI_API_KEY:-test_key}
+      - DATABASE_URL=sqlite+aiosqlite:///./shai.db
+      - CURATOR_CHAT_IDS=${CURATOR_CHAT_IDS:-123456789}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

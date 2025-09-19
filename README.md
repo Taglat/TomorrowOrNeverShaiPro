@@ -27,25 +27,43 @@
 
 ### Предварительные требования
 
-- Python 3.8 или выше
-- pip (Python package manager)
-- Telegram Bot Token
+- Docker и Docker Compose
+- Telegram Bot Token (от @BotFather)
 - SHAI.pro API доступ
 
-### Установка
+### Быстрый старт с Docker
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/Taglat/SHAI.git
-cd SHAI
+git clone https://github.com/Taglat/TomorrowOrNeverShaiPro.git
+cd TomorrowOrNeverShaiPro
 ```
 
-2. Установите зависимости:
+2. Настройте переменные окружения:
+```bash
+cp .env.example .env
+# Отредактируйте .env файл с реальными токенами
+```
+
+3. Запустите с Docker Compose:
+```bash
+docker-compose up -d
+```
+
+4. Проверьте работу:
+```bash
+curl http://localhost:8000/
+./test_api.sh
+```
+
+### Ручная установка (без Docker)
+
+1. Установите зависимости:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Создайте файл конфигурации:
+2. Создайте файл конфигурации:
 ```bash
 cp .env.example .env
 ```
